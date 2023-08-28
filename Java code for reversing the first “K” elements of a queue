@@ -1,0 +1,43 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+    public static void reverse(int queue[], int k){
+        // Write your code here.
+        int i=0;
+        int j=k-1;
+        for(int count=0;count<=((k-1)/2);count++){
+            int temp=queue[i];
+            queue[i]=queue[j];
+            queue[j]=temp;
+            i++;
+            j--;
+        }
+        for(int m=0;m<queue.length;m++){
+            System.out.print(queue[m]+" ");
+        }
+    }
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        Solution obj=new Solution();
+        int t,n,k;
+        System.out.print("Enter the number of Elements!\n");
+        n=sc.nextInt();
+        int[] queue=new int[n];
+        System.out.print("Enter the elements!!\n");
+        if(n<=100 && n>=1){
+            for(int i=0;i<n;i++){
+                queue[i]=sc.nextInt();
+            }
+            System.out.print("Enter the number of elements to be reversed!!\n");
+            k=sc.nextInt();
+            if(k<=n && k>=0){
+                obj.reverse(queue,k);
+            }else{
+                System.out.print("Number of reversing elements are more the total number of elements!!");
+            }
+        }else{
+            System.out.println("Number of values are more!!");
+        }
+    }
+}
